@@ -6,7 +6,7 @@ prelude:
 package_dir: /entities
 steps:
 - >-
-  cd entities && git checkout "${PACKAGE_VERSION}" &&
+  cd entities && git checkout v"${PACKAGE_VERSION}" &&
   make build &&
   mkdir /entities/usr/bin -p &&
   mv entities /entities/usr/bin/entities &&
