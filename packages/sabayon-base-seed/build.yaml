@@ -1,0 +1,25 @@
+image: "sabayon/base"
+env:
+- ACCEPT_LICENSE=*
+- FEATURES="-sandbox -usersandbox -ipc-sandbox -pid-sandbox -network-sandbox"
+prelude:
+- >-
+  equo repo mirrorsort sabayonlinux.org &&
+  equo update && equo upgrade && equo cleanup &&
+  mkdir /usr/share/mocaccino/packages -p &&
+  equo q list installed -q -v > /usr/share/mocaccino/packages/layer.sabayon-base.installed &&
+  equo remove --force-system
+  sys-devel/base-gcc-8.2.0-r6
+  sys-devel/clang-runtime-9.0.1
+  sys-libs/compiler-rt-sanitizers:9.0.1
+  sys-libs/compiler-rt:9.0.1 &&
+  equo remove --nodeps --force dev-lang/python:3.6 &&
+  equo cleanup &&
+  echo -5 | equo conf update
+- >-
+  mkdir /usr/share/luet/layers/ -p &&
+  equo q list installed -q -v > /usr/share/luet/layers/{{ .Values.name }}.pkglist &&
+  cp /etc/group /usr/share/luet/layers/{{ .Values.name }}.group &&
+  cp /etc/passwd /usr/share/luet/layers/{{ .Values.name }}.users &&
+  if [ -e /etc/gshadow ] ; then cp /etc/gshadow /usr/share/luet/layers/{{ .Values.name }}.gshadow ; fi &&
+  if [ -e /etc/shadow ] ; then cp /etc/shadow /usr/share/luet/layers/{{ .Values.name }}.shadow ; fi
