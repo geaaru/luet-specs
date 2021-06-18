@@ -16,6 +16,7 @@ prelude:
   equo remove --nodeps --force dev-lang/python:3.6 &&
   equo cleanup &&
   echo -5 | equo conf update
+steps:
 - >-
   mkdir /usr/share/luet/layers/ -p &&
   equo q list installed -q -v > /usr/share/luet/layers/{{ .Values.name }}.pkglist &&
