@@ -1,0 +1,4 @@
+install:
+- chmod 4750 /usr/libexec/dbus-daemon-launch-helper
+- ldconfig
+- source /etc/profile && env-update

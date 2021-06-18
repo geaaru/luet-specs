@@ -1,0 +1,43 @@
+requires:
+- category: layer
+  name: sabayon-base-seed
+  version: '>=0'
+preludes:
+- >-
+  wget -O /tmp/10_linux https://raw.githubusercontent.com/mocaccinoOS/desktop/master/packages/apps/grub/10_linux &&
+  mv /tmp/10_linux /etc/grub.d/ && chmod a+x /etc/grub.d/10_linux
+unpack: true
+excludes:
+- ^/etc/shadow
+- ^/etc/gshadow
+- ^/etc/group
+- ^/etc/hostname
+- ^/etc/hosts
+- ^/etc/resolv.conf
+- ^/etc/machine-id
+- ^/etc/fstab
+- ^/etc/passwd
+- ^/etc/machineid
+- ^/etc/udev/hwdb.bin
+- ^/etc/ld.so.cache
+- ^/etc/csh.env
+- ^/etc/subgid
+- ^/etc/subuid
+- ^/etc/._cfg*
+- ^/etc/.pwd.lock
+- ^/usr/portage
+- ^/sys
+- ^/tmp/
+- ^/proc
+- ^/dev
+- ^/luetbuild
+
+# devel
+- ^/usr/include
+- ^/opt/sabayon-build/
+
+# Drop python3.6
+- ^/usr/lib64/python3.6/
+- ^/usr/lib/portage/python3.6/
+- ^/usr/lib/python-exec/python3.6/
+- ^/usr/lib64/libpython3.6m*
