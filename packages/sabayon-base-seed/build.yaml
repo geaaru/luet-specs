@@ -19,7 +19,7 @@ prelude:
 steps:
 - >-
   mkdir /usr/share/luet/layers/ -p &&
-  equo q list installed -q -v > /usr/share/luet/layers/{{ .Values.name }}.pkglist &&
+  qlist -ICvS > /usr/share/luet/layers/{{ .Values.name }}.pkglist &&
   cp /etc/group /usr/share/luet/layers/{{ .Values.name }}.group &&
   cp /etc/passwd /usr/share/luet/layers/{{ .Values.name }}.users &&
   if [ -e /etc/gshadow ] ; then cp /etc/gshadow /usr/share/luet/layers/{{ .Values.name }}.gshadow ; fi &&
