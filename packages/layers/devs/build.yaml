@@ -1,0 +1,6 @@
+requires:
+{{ toYaml .Values.build_requires | indent 2 }}
+unpack: true
+includes:
+# devel
+- ^/usr/include

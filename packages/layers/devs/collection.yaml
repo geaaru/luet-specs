@@ -1,0 +1,16 @@
+common:
+  &common
+  category: layer
+  version: "20210621"
+  requires:
+    - category: layer
+      name: sabayon-base
+      version: ">=0"
+  build_requires:
+    - category: layer
+      name: sabayon-base-seed
+      version: ">=0"
+
+packages:
+  - <<: *common
+    name: "sabayon-base-dev"
