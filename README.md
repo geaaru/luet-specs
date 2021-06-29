@@ -21,3 +21,9 @@ or just run this command:
 ```shell
 $> wget -O /etc/luet/repos.conf.d/geaaru.yaml https://raw.githubusercontent.com/geaaru/luet-specs/master/contrib/geaaru.yml
 ```
+
+Pushing things in keybase sometimes stalled. I will do less upgrade and i will check the repository `stable`:
+
+```shell
+$> wget -O /etc/luet/repos.conf.d/geaaru-stable.yaml https://raw.githubusercontent.com/geaaru/luet-specs/master/contrib/geaaru-stable.yml
+```
