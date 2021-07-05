@@ -1,0 +1,5 @@
+install:
+- mos kernel gi --set-links --all --purge --grub || true
+shell:
+- bash
+- -c

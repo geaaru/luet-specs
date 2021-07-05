@@ -1,0 +1,6 @@
+install:
+- depmod -a {{ index .Values.labels "package.version" }}-mocaccino || true
+- mos kernel gi --set-links --grub --purge --all || true
+shell:
+- bash
+- -c
