@@ -7,7 +7,7 @@ prepare_workarea() {
   mount -t sysfs none /sys
 
   mkdir -p /dev/pts
-  mount -t devpts none /dev/pts -o gid=5,mode=620,ptmxmode=666
+  mount -t devpts devpts /dev/pts -o gid=5,mode=620,ptmxmode=666
 
   # Create the new mountpoint in RAM.
   mount -t tmpfs none /mnt
