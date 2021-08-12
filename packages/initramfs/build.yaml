@@ -76,11 +76,12 @@ steps:
    github.com/u-root/u-root/cmds/core/sleep
 
 - |
+   PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
    xz --check=crc32 -9 --lzma2=dict=1MiB \
       --stdout initramfs.cpio \
       | dd conv=sync bs=512 \
-      of=/boot/initramfs-vanilla-x86_64-{{.Values.version}}-mocaccino
-- cd /boot/ && ln -s initramfs-vanilla-x86_64-{{.Values.version}}-mocaccino Initrd
+      of=/boot/initramfs-vanilla-x86_64-${PACKAGE_VERSION}-mocaccino
+- cd /boot/ && ln -s initramfs-vanilla-x86_64-${PACKAGE_VERSION}-mocaccino Initrd
 excludes:
 - ^/luetbuild
 - ^/root
