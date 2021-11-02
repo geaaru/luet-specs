@@ -8,6 +8,9 @@ requires:
   - category: "mocaccino"
     name: "cli"
     version: ">=0"
+  - category: "virtual"
+    name: "sh"
+    version: ">=0"
 arch: "x86_64"
 prefix: linux
 suffix: mocaccino
